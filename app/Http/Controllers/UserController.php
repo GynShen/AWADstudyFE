@@ -12,4 +12,8 @@ class UserController extends Controller
         echo "\n";
         return ['name' =>'ABC', 'age' => 40];
     }
+
+    public function loadView($user) {
+        return view('user', ['user' => $user]);
+    }
 }
