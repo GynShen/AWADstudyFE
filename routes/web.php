@@ -9,8 +9,8 @@ Route::get('/about', function () {
 Route::view('/contact', 'contact');
 
 Route::get('/', function(){
-    // return view('welcome');
-    return redirect('about');
+    return view('welcome');
+    // return redirect('about');
 });
 
 Route::get('/{username}', function ($username) {
