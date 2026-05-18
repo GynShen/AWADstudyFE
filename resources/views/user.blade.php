@@ -9,3 +9,7 @@
 @else
     <h2>Unknown User</h2>
 @endif
+
+@foreach($users as $user)
+  <h1> {{$user}} </h1>
+@endforeach
