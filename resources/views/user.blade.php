@@ -1,5 +1,7 @@
 <x-header data="User" />
 
+@include('userInner')
+
 @if ($user == 'Peter')
     <h2>Hello, {{ $user }}</h2>
 @elseif($user == 'Ali')
@@ -13,3 +15,10 @@
 @foreach($users as $user)
   <h1> {{$user}} </h1>
 @endforeach
+
+<script>
+  var data=@json($users);
+  console.warn(data);
+</script>
+
+@csrf
