@@ -8,7 +8,22 @@ use App\Models\User;
 
 class UserController extends Controller
 {
-    public function deleteUser($id){
+    public function storeUser(Request $request) {
+        $user = User::find($request->id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->save();
+        return redirect('datatest');
+    }
+
+    public function updateUser($id)
+    {
+        $user = User::find($id);
+        return view('/updateUser', ['user' => $user]);
+    }
+
+    public function deleteUser($id)
+    {
         // $user = User::find($id);
         // $user->delete();
         $user = User::destroy($id);

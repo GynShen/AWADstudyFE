@@ -3,6 +3,9 @@
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
+Route::post('/updateUser', [UserController::class, 'storeUser']);
+Route::get('/updateUser/{id}', [UserController::class, 'updateUser']);
+
 Route::get('/deleteUser/{id}',[UserController::class, 'deleteUser']);
 
 Route::post('/addUser', [UserController::class, 'addUser']);
