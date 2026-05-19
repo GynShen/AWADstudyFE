@@ -3,6 +3,9 @@
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
+Route::post('/addUser', [UserController::class, 'addUser']);
+Route::view('/addUser','addUser');
+
 Route::get('/datatest', [UserController::class, 'testData']);
 
 Route::get('/user/{user}', [UserController::class, 'loadView']);
