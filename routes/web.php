@@ -3,6 +3,8 @@
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/getUser', [UserController::class,'getUser']);
+
 Route::get('/getManyCompany', [UserController::class,'getManyCompany']);
 Route::get('/getOneCompany', [UserController::class, 'getOneCompany']);
 

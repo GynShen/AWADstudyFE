@@ -5,9 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
+use App\Models\Company;
 
 class UserController extends Controller
 {
+    public function getUser(){
+        return Company::find(1)->user;
+    }
+    
     public function getManyCompany(){
         return User::find(2)->getManyCompany;
     }
