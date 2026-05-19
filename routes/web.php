@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Route;
 // ); //Remember to comment both signUp and contact route below
 
 Route::post('/login', [UserController::class, 'login']);
-Route::view('/login','login')->middleware('ageCheck');
+Route::view('/login','login');
 
 Route::get('/getUser', [UserController::class,'getUser']);
 
