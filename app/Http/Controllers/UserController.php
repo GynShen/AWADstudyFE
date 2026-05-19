@@ -9,6 +9,15 @@ use App\Models\Company;
 
 class UserController extends Controller
 {
+    public function login(Request $request){
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|min:5|max:50'
+        ]);
+
+        return $request->input();
+    }
+
     public function getUser(){
         return Company::find(1)->user;
     }

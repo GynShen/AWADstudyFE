@@ -3,6 +3,9 @@
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
+Route::post('/login', [UserController::class, 'login']);
+Route::view('/login','login');
+
 Route::get('/getUser', [UserController::class,'getUser']);
 
 Route::get('/getManyCompany', [UserController::class,'getManyCompany']);
