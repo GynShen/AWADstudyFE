@@ -8,7 +8,16 @@ use App\Models\User;
 
 class UserController extends Controller
 {
-    public function storeUser(Request $request) {
+    public function signUp(Request $request)
+    {
+        $data = $request->all();
+        $data['is_admin'] = 0;
+        User::create($data);
+        return redirect('datatest');
+    }
+
+    public function storeUser(Request $request)
+    {
         $user = User::find($request->id);
         $user->name = $request->name;
         $user->email = $request->email;
