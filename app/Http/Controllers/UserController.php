@@ -3,9 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
+    function testData() {
+        return DB::select('select * from users');
+    }
+
     public function index($user) {
         echo $user;
         echo ", Hello from UserController";
