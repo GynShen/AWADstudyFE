@@ -11,7 +11,7 @@
     <label for="password">Password</label><br>
     <input type="password" name="password" id="password" placeholder="Enter Password" /><br><br>
 
-    <input type="hidden" name="is_admin" id="is_admin" value=0 /><br>
+    {{-- <input type="hidden" name="is_admin" id="is_admin" value=0 /><br> --}}
 
     <button type="submit">Sign Up</button>
 </form>
