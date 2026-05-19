@@ -13,11 +13,11 @@ class User extends Model
 
     protected $fillable = ['name', 'email', 'password'];
 
-    public function getOneCompany(){
+    public function company(){
         return $this->hasOne(Company::class);
     }
 
-    public function getManyCompany(){
+    public function companies(){
         return $this->hasMany(Company::class);
     }
 }

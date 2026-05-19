@@ -14,11 +14,11 @@ class UserController extends Controller
     }
     
     public function getManyCompany(){
-        return User::find(2)->getManyCompany;
+        return User::find(2)->companies;
     }
 
     public function getOneCompany(){
-        return User::find(2)->getOneCompany;
+        return User::find(2)->company;
     }
 
     public function signUp(Request $request)
