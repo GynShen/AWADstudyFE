@@ -3,6 +3,8 @@
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/deleteUser/{id}',[UserController::class, 'deleteUser']);
+
 Route::post('/addUser', [UserController::class, 'addUser']);
 Route::view('/addUser','addUser');
 
