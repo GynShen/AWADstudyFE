@@ -3,15 +3,15 @@
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-Route::group(['middleware' => ['checkAge']], function() 
-    {
-        Route::view("signUp","signUp");
-        Route::view("contact", "contact");
-    }
-);
+// Route::group(['middleware' => ['checkAge']], function() 
+//     {
+//         Route::view("signUp","signUp");
+//         Route::view("contact", "contact");
+//     }
+// ); //Remember to comment both signUp and contact route below
 
 Route::post('/login', [UserController::class, 'login']);
-Route::view('/login','login');
+Route::view('/login','login')->middleware('ageCheck');
 
 Route::get('/getUser', [UserController::class,'getUser']);
 
@@ -19,7 +19,7 @@ Route::get('/getManyCompany', [UserController::class,'getManyCompany']);
 Route::get('/getOneCompany', [UserController::class, 'getOneCompany']);
 
 Route::post('/signUp', [UserController::class, 'signUp']);
-// Route::view('/signUp', 'signUp'); //For middleware testing
+Route::view('/signUp', 'signUp');
 
 Route::post('/updateUser', [UserController::class, 'storeUser']);
 Route::get('/updateUser/{id}', [UserController::class, 'updateUser']);
@@ -39,7 +39,7 @@ Route::get('/about', function () {
     return view('about');
 });
 
-// Route::view('/contact', 'contact'); //For middleware testing
+Route::view('/contact', 'contact');
 
 Route::get('/', function () {
     return view('welcome');
