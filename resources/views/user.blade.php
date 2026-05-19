@@ -2,7 +2,7 @@
 
 @include('userInner')
 
-@if ($user == 'Peter')
+{{-- @if ($user == 'Peter')
     <h2>Hello, {{ $user }}</h2>
 @elseif($user == 'Ali')
     <h2>Apa khabar, {{ $user }}</h2>
@@ -21,4 +21,4 @@
   console.warn(data);
 </script>
 
-@csrf
+@csrf --}}
