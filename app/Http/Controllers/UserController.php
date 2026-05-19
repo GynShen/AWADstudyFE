@@ -8,6 +8,10 @@ use App\Models\User;
 
 class UserController extends Controller
 {
+    public function getManyCompany(){
+        return User::find(2)->getManyCompany;
+    }
+
     public function getOneCompany(){
         return User::find(2)->getOneCompany;
     }
