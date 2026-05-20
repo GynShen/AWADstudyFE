@@ -10,8 +10,22 @@ use Illuminate\Support\Facades\Route;
 //     }
 // ); //Remember to comment both signUp and contact route below
 
+Route::get('/login', function() {
+    if(session()->has('user')) {
+        return redirect('/');
+    }
+    return view('login');
+});
+
+Route::get('/logout', function(){
+    if(session()->has('user')) {
+        session()->pull('user');
+    }
+    return redirect('/login');
+});
+
 Route::post('/login', [UserController::class, 'login']);
-Route::view('/login','login');
+// Route::view('/login','login');
 
 Route::get('/getUser', [UserController::class,'getUser']);
 

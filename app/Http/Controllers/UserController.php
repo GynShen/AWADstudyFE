@@ -9,24 +9,29 @@ use App\Models\Company;
 
 class UserController extends Controller
 {
-    public function login(Request $request){
+    public function login(Request $request)
+    {
         $request->validate([
-            'email' => 'required|email',
-            'password' => 'required|min:5|max:50'
+            'username' => 'required',
+            'password' => 'required|min:3',
         ]);
-
-        return $request->input();
+        $data=$request->input();
+        $request->session()->put('user', $data['username']);
+        return redirect('/');
     }
 
-    public function getUser(){
+    public function getUser()
+    {
         return Company::find(1)->user;
     }
-    
-    public function getManyCompany(){
+
+    public function getManyCompany()
+    {
         return User::find(2)->companies;
     }
 
-    public function getOneCompany(){
+    public function getOneCompany()
+    {
         return User::find(2)->company;
     }
 

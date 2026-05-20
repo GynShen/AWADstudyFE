@@ -21,6 +21,7 @@
         </style>
     </head>
     <body class="antialiased">
+        <h1>Hi, {{session('user')}}</h1>
         <x-header data="Home"/>
         @if (isset($username))
             <h1>Hello, {{$username}} </h1>
