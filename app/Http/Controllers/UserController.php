@@ -9,6 +9,27 @@ use App\Models\Company;
 
 class UserController extends Controller
 {
+    public function signUp(Request $request){
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255|unique:users,email',
+            'password' => [
+                'required',
+                'string',
+                'min:8',
+                'max:12',
+                'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,12}$/'
+            ],
+            'confirm_password' => 'required|same:password',
+        ]);
+
+        $request->session()->flash('user', $request->name);
+        $data = $request->all();
+        $data['is_admin'] = 0;
+        User::create($data);
+        return view('/signUp');
+    }
+
     public function login(Request $request)
     {
         $request->validate([
@@ -16,7 +37,7 @@ class UserController extends Controller
             'password' => 'required|min:3',
         ]);
         $data=$request->input();
-        $request->session()->put('user', $data['username']);
+        $request->session()->flash('user', $data['username']);
         return redirect('/');
     }
 
@@ -35,13 +56,13 @@ class UserController extends Controller
         return User::find(2)->company;
     }
 
-    public function signUp(Request $request)
-    {
-        $data = $request->all();
-        $data['is_admin'] = 0;
-        User::create($data);
-        return redirect('datatest');
-    }
+    // public function signUp(Request $request)
+    // {
+    //     $data = $request->all();
+    //     $data['is_admin'] = 0;
+    //     User::create($data);
+    //     return redirect('datatest');
+    // }
 
     public function storeUser(Request $request)
     {
